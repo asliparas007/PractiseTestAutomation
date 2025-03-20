@@ -13,11 +13,18 @@ def test_positiveUserLogin(initialize_browser):
     login.logout()
 
 
-def test_negativeUserLogin(initialize_browser):
+def test_negativeUserName(initialize_browser):
     driver = initialize_browser
     driver.get("https://practicetestautomation.com/practice-test-login/")
     login = TestLogin(driver)
     login.loginuser("incorrectUser","Password123")
+    login.error_login()
+
+def test_negativePassword(initialize_browser):
+    driver = initialize_browser
+    driver.get("https://practicetestautomation.com/practice-test-login/")
+    login = TestLogin(driver)
+    login.loginuser("student","Password1234")
     login.error_login()
 
 

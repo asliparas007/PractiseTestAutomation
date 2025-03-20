@@ -31,5 +31,5 @@ class TestLogin():
 
     def error_login(self):
         wait = WebDriverWait(self.driver,10).until(expected_conditions.visibility_of_element_located(self.get_error_location))
-        assert "invalid" in wait.text, f"{wait.text}"
+        assert "Your username is invalid!" or "Your password is invalid!" in wait.text, f"{wait.text}"
 
